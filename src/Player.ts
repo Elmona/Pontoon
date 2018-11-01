@@ -1,6 +1,10 @@
 'use strict'
 
-class Player {
+export default class Player {
+  stayValue
+  name
+  cards
+
   constructor(name, stayValue = 17) {
     this.stayValue = stayValue
     this.name = name
@@ -28,9 +32,7 @@ class Player {
 
   toString() {
     return `${this.name.padEnd(8)}: ${this.cards.length !== 0
-      ? this.cards.map(c => `${c.suit} ${c.label}`).join(', ')
+      ? this.cards.map(c => c.toString()).join(', ')
       : '-'} (${this.calcScore()})`
   }
 }
-
-module.exports = Player

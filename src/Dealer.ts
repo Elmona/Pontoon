@@ -1,12 +1,15 @@
 'use strict'
 
-const Player = require('./Player')
-const Deck = require('./Deck')
+import Player from './Player';
+import { Deck } from './Deck';
 
-class Dealer extends Player {
-  constructor() {
-    super()
-    this.name = 'Dealer'
+export default class Dealer extends Player {
+  name
+  deck
+
+  constructor(name = 'Dealer') {
+    super(name)
+    this.name = name
     this.deck = new Deck()
   }
 
@@ -36,5 +39,3 @@ class Dealer extends Player {
     this.cards = []
   }
 }
-
-module.exports = Dealer

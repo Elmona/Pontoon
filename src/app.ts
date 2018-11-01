@@ -1,11 +1,11 @@
 'use strict'
 
-const Game = require('./Game')
+import Game from './Game';
 
 try {
   const game = new Game()
 
-  game.addPlayer('Emil')
+  game.addPlayer('Oskar')
   game.addPlayer('Kalle', 17)
   game.addPlayer('Louise', 15)
 

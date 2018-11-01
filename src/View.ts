@@ -1,6 +1,6 @@
 'use strict'
 
-class View {
+export default class View {
     print(player, dealer, message) {
         console.log(player.toString())
         console.log(dealer.toString())
@@ -8,5 +8,3 @@ class View {
         console.log()
     }
 }
-
-module.exports = View

@@ -1,10 +1,14 @@
 'use strict'
 
-const Dealer = require('./Dealer')
-const Player = require('./Player')
-const View = require('./View')
+import Dealer from './Dealer';
+import Player from './Player';
+import View from './View';
 
-class Game {
+export default class Game {
+  players
+  dealer
+  view
+
   constructor() {
     this.players = []
     this.dealer = new Dealer()
@@ -48,5 +52,3 @@ class Game {
     this.players.push(new Player(name, stayValue))
   }
 }
-
-module.exports = Game
