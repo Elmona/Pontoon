@@ -4,7 +4,7 @@
   "description": "Pontoon game",
   "main": "app.js",
   "scripts": {
-    "start": "tsc && node ./build/app.js",
+    "start": "tsc && node ./build/src/app.js",
     "test": "mocha -r ts-node/register ./test/*.ts",
     "watch": "tsc -w"
   },

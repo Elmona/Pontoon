@@ -1,4 +1,5 @@
 'use strict';
+
 export class Card {
   private suit: string;
   private rank: string;

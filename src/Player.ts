@@ -1,5 +1,7 @@
 'use strict';
+
 import { Card } from './Deck';
+
 export class Player {
   stayValue: number;
   name: string;

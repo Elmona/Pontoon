@@ -1,6 +1,7 @@
 'use strict';
 
 import { Player } from './Player';
+
 export class View {
     print(player: Player, dealer: Player, message: string) {
         console.log(player.toString());
