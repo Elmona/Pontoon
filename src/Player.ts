@@ -24,7 +24,7 @@ export default class Player {
 
     if (score > 21)
       this.cards.forEach(card => {
-        if (card.label === 'A' && score > 21) score -= 13
+        if (card.rank === 'Ace' && score > 21) score -= 13
       })
 
     return score

@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "tsc && node ./build/app.js",
-    "test": "mocha -r ts-node/register ./test/*.ts"
+    "test": "mocha -r ts-node/register ./test/*.ts",
+    "watch": "tsc -w"
   },
   "author": "Emil Larsson",
   "license": "MIT",

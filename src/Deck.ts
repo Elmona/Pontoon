@@ -32,7 +32,7 @@ class Card {
 export class Deck {
   stringSuits: string[] = ['♥', '♦', '♣', '♠']
   suits: string[] = ["Heart", "Diamond", "Club", "Spade"]
-  stringRanks: string[] = ["2", "3", "4", "5", "6", "7", "8", "9", "Ten", "Kn", "Qn", "K", "A"]
+  stringRanks: string[] = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Kn", "Qn", "K", "A"]
   ranks: string[] = ["Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Knight", "Queen", "King", "Ace"]
 
   private _cards: Card[]
