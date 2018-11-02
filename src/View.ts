@@ -1,10 +1,11 @@
-'use strict'
+'use strict';
 
-export default class View {
-    print(player, dealer, message) {
-        console.log(player.toString())
-        console.log(dealer.toString())
-        console.log(message)
-        console.log()
+import { Player } from './Player';
+export class View {
+    print(player: Player, dealer: Player, message: string) {
+        console.log(player.toString());
+        console.log(dealer.toString());
+        console.log(message);
+        console.log();
     }
 }

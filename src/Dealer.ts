@@ -1,41 +1,42 @@
-'use strict'
+'use strict';
 
-import Player from './Player';
-import { Deck } from './Deck';
+import { Player } from './Player';
+import { Deck, Card } from './Deck';
 
-export default class Dealer extends Player {
-  name
-  deck
+export class Dealer extends Player {
+  name: string;
+  deck: Deck;
 
   constructor(name = 'Dealer') {
-    super(name)
-    this.name = name
-    this.deck = new Deck()
+    super(name);
+    this.name = name;
+    this.deck = new Deck();
   }
 
-  giveEveryoneACard(players) {
+  giveEveryoneACard(players: Player[]) {
     players.forEach(player => {
-      player.getCard(this.deck.getCard())
-    })
+      const card = this.deck.getCard();
+      player.getCard(card);
+    });
   }
 
-  sendCardsUntilSatisfied(player) {
+  sendCardsUntilSatisfied(player: Player) {
     while (player.wantMoreCards()) {
-      player.getCard(this.deck.getCard())
+      player.getCard(this.deck.getCard());
     }
   }
 
   getCardsUntilSatisfied() {
     while (this.wantMoreCards()) {
-      this.cards.push(this.sendCard())
+      this.cards.push(this.sendCard());
     }
   }
 
   sendCard() {
-    return this.deck.getCard()
+    return this.deck.getCard();
   }
 
   clearCards() {
-    this.cards = []
+    this.cards = [];
   }
 }

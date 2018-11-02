@@ -1,54 +1,55 @@
-'use strict'
+'use strict';
 
-import Dealer from './Dealer';
-import Player from './Player';
-import View from './View';
+import { Dealer } from './Dealer';
+import { Player } from './Player';
+import { View } from './View';
 
-export default class Game {
-  players
-  dealer
-  view
+export class Game {
+  players: Player[];
+  dealer: Dealer;
+  view: View;
 
   constructor() {
-    this.players = []
-    this.dealer = new Dealer()
-    this.view = new View()
+    this.players = [];
+    this.dealer = new Dealer();
+    this.view = new View();
   }
 
   start() {
-    if (this.players.length === 0)
-      throw new Error('No players')
+    if (this.players.length === 0) {
+      throw new Error('No players');
+    }
 
-    console.log('Starting a game of Pontoon.')
+    console.log('Starting a game of Pontoon.');
 
-    this.dealer.giveEveryoneACard(this.players)
+    this.dealer.giveEveryoneACard(this.players);
 
     this.players.forEach(player => {
-      let message = ''
+      let message = '';
 
-      this.dealer.sendCardsUntilSatisfied(player)
+      this.dealer.sendCardsUntilSatisfied(player);
 
       if (player.calcScore() === 21) {
-        message = `${player.name} Wins!`
+        message = `${player.name} Wins!`;
       } else if (player.calcScore() > 21) {
-        message = `Dealer Wins!`
+        message = `Dealer Wins!`;
       } else {
-        this.dealer.getCardsUntilSatisfied()
+        this.dealer.getCardsUntilSatisfied();
 
         if (this.dealer.calcScore() >= player.calcScore() && this.dealer.calcScore() <= 21) {
-          message = `Dealer Wins!`
+          message = `Dealer Wins!`;
         } else {
-          message = `${player.name} Wins!`
+          message = `${player.name} Wins!`;
         }
       }
 
-      this.view.print(player, this.dealer, message)
+      this.view.print(player, this.dealer, message);
 
-      this.dealer.clearCards()
-    })
+      this.dealer.clearCards();
+    });
   }
 
-  addPlayer(name, stayValue = 17) {
-    this.players.push(new Player(name, stayValue))
+  addPlayer(name: string, stayValue = 17) {
+    this.players.push(new Player(name, stayValue));
   }
 }
