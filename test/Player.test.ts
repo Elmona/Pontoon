@@ -54,6 +54,19 @@ describe('Player', () => {
     expect(player.calcScore()).to.eql(16)
     done()
   })
+
+  it('Expect player with stayvalue 1 to not want more cards after 1 ace', done => {
+    const player = new Player('test', 1)
+
+    const cards = getFullDeck()
+    const aces = cards
+      .filter(card => card.rank === 'Ace')
+
+    player.getCard(aces[0])
+
+    expect(player.wantMoreCards()).to.eql(false)
+    done()
+  })
 })
 
 const getFullDeck = () => {
