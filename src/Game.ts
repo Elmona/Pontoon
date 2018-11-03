@@ -20,7 +20,7 @@ export class Game {
       throw new Error('No players');
     }
 
-    console.log('Starting a game of Pontoon.');
+    this.view.viewMessage('Starting a game of Pontoon.');
 
     this.dealer.giveEveryoneACard(this.players);
 

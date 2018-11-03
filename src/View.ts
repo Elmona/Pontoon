@@ -9,4 +9,8 @@ export class View {
         console.log(message);
         console.log();
     }
+
+    viewMessage(msg: string) {
+        console.log(msg);
+    }
 }
