@@ -15,25 +15,29 @@ export class Dealer extends Player {
 
   giveEveryoneACard(players: Player[]) {
     players.forEach(player => {
-      const card = this.deck.getCard();
-      player.getCard(card);
+      player.getCard(this.getCardFromDeck());
     });
   }
 
   sendCardsUntilSatisfied(player: Player) {
     while (player.wantMoreCards()) {
-      player.getCard(this.deck.getCard());
+      player.getCard(this.getCardFromDeck());
     }
   }
 
   getCardsUntilSatisfied() {
     while (this.wantMoreCards()) {
-      this.cards.push(this.sendCard());
+      this.cards.push(this.getCardFromDeck());
     }
   }
 
-  sendCard() {
-    return this.deck.getCard();
+  private getCardFromDeck() {
+    try {
+      return this.deck.getCard();
+    } catch (e) {
+      this.deck = new Deck();
+      return this.deck.getCard();
+    }
   }
 
   clearCards() {

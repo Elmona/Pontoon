@@ -1,9 +1,11 @@
 'use strict';
 
 import { Game } from './Game';
+import { View } from './View';
 
 try {
-  const game = new Game();
+  const view = new View();
+  const game = new Game(view);
 
   game.addPlayer('Oskar');
   game.addPlayer('Kalle', 17);

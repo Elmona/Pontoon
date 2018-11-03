@@ -9,10 +9,10 @@ export class Game {
   dealer: Dealer;
   view: View;
 
-  constructor() {
+  constructor(view: View) {
     this.players = [];
     this.dealer = new Dealer();
-    this.view = new View();
+    this.view = view;
   }
 
   start() {
