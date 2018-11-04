@@ -1,7 +1,7 @@
 'use strict';
 
 import { expect } from 'chai';
-import { Deck } from '../src/Deck';
+import { Deck, Rank } from '../src/Deck';
 import { Player } from '../src/Player';
 
 describe('Player', () => {
@@ -18,7 +18,7 @@ describe('Player', () => {
 
     const cards = getFullDeck();
     const aces = cards
-      .filter(card => card.getRank() === 'Ace');
+      .filter(card => card.getRank() === Rank.Ace);
 
     player.getCard(aces[0]);
 
@@ -31,7 +31,7 @@ describe('Player', () => {
 
     const cards = getFullDeck();
     const aces = cards
-      .filter(card => card.getRank() === 'Ace');
+      .filter(card => card.getRank() === Rank.Ace);
 
     player.getCard(aces[0]);
     player.getCard(aces[1]);
@@ -45,7 +45,7 @@ describe('Player', () => {
 
     const cards = getFullDeck();
     const aces = cards
-      .filter(card => card.getRank() === 'Ace');
+      .filter(card => card.getRank() === Rank.Ace);
 
     player.getCard(aces[0]);
     player.getCard(aces[1]);
@@ -60,7 +60,7 @@ describe('Player', () => {
 
     const cards = getFullDeck();
     const aces = cards
-      .filter(card => card.getRank() === 'Ace');
+      .filter(card => card.getRank() === Rank.Ace);
 
     player.getCard(aces[0]);
 

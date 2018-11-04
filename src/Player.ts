@@ -1,6 +1,6 @@
 'use strict';
 
-import { Card } from './Deck';
+import { Card, Rank } from './Deck';
 
 export class Player {
   stayValue: number;
@@ -26,7 +26,7 @@ export class Player {
 
     if (score > 21) {
       this.cards.forEach(card => {
-        if (card.getRank() === 'Ace' && score > 21) score -= 13;
+        if (card.getRank() === Rank.Ace && score > 21) score -= 13;
       });
     }
 
