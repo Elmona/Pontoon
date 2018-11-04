@@ -28,10 +28,8 @@ describe('Game', () => {
 
     expect(view.msg).to.eql('Starting a game of Pontoon.');
 
-    // @ts-ignore
-    expect(view.printMessage).to.satisfy(msg => {
-      return ['Dealer Wins!', 'test Wins!'].some(str => msg === str);
-    });
+    expect(view.printMessage).to.satisfy((msg: string) =>
+      ['Dealer Wins!', 'test Wins!'].some(str => msg === str));
 
     done();
   });
