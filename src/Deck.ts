@@ -1,20 +1,39 @@
 'use strict';
 
-export class Card {
-  private suit: string;
-  private rank: string;
-  private value: number;
-  private stringRepresentation: string;
+export enum Suit {
+  Heart = '♥',
+  Diamond = '♦',
+  Club = '♣',
+  Spade = '♠'
+}
 
-  constructor(suit: string, rank: string, value: number, stringRepresentation: string) {
+export enum Rank {
+  Two = 2,
+  Three,
+  Four,
+  Five,
+  Six,
+  Seven,
+  Eight,
+  Nine,
+  Ten,
+  Knight,
+  Queen,
+  King,
+  Ace 
+}
+
+export class Card {
+  private suit: Suit;
+  private rank: Rank;
+
+  constructor(suit: Suit, rank: Rank) {
     this.suit = suit;
     this.rank = rank;
-    this.value = value;
-    this.stringRepresentation = stringRepresentation;
   }
 
   getValue() {
-    return this.value;
+    return this.rank.valueOf();
   }
 
   getSuit() {
@@ -26,24 +45,33 @@ export class Card {
   }
 
   toString() {
-    return this.stringRepresentation;
+    const suit = this.suit.valueOf();
+    let rank = '';
+
+    switch (this.rank) {
+      case Rank.Ace: rank = 'A'; break;
+      case Rank.Knight: rank = 'Kn'; break;
+      case Rank.Queen: rank = 'Q'; break;
+      case Rank.King: rank = 'K'; break;
+      default: rank = this.rank.toString(); break;
+    }
+
+    return `${suit} ${rank}`;
   }
 }
 
 export class Deck {
-  stringSuits: string[] = ['♥', '♦', '♣', '♠'];
-  suits: string[] = ["Heart", "Diamond", "Club", "Spade"];
-  stringRanks: string[] = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Kn", "Qn", "K", "A"];
-  ranks: string[] = ["Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Knight", "Queen", "King", "Ace"];
-
   private _cards: Card[];
 
   constructor() {
     this._cards = [];
 
-    for (let s = 0; s < 4; s++) {
-      for (let r = 0; r < 13; r++) {
-        this._cards.push(new Card(this.suits[s], this.ranks[r], r + 2, `${this.stringSuits[s]} ${this.stringRanks[r]}`));
+    const suits: Suit[] = Object.values(Suit);
+    const ranks: Rank[] = Object.values(Rank).filter(rank => !isNaN(rank));
+
+    for (const suit of suits) {
+      for (const rank of ranks) {
+        this._cards.push(new Card(suit, rank));
       }
     }
 

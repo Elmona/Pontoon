@@ -1,6 +1,6 @@
 'use strict';
 
-import { Deck, Card } from '../src/Deck';
+import { Deck, Card, Suit } from '../src/Deck';
 import { expect } from 'chai';
 
 describe('Deck', () => {
@@ -64,7 +64,7 @@ describe('Deck', () => {
     }
 
     const hearts = cards
-      .filter(card => card.getSuit() === "Heart");
+      .filter(card => card.getSuit() === Suit.Heart);
 
     expect(hearts.length).to.eq(13);
     done();
